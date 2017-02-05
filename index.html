@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>QR Code Generation Using JavaScript</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+     <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+     <link href="cover.css" rel="stylesheet">
+    <script src="js/lib/qrcode.min.js"></script>
+</head>
+
+<body>
+     <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+    <div class="inner cover">
+    <h1 class="cover-heading">QR Code Generator</h1>
+    <input id="qrtext" oninput="generateQR()" autofocus placeholder="Type Something" value="Hello, World" />
+    <hr>
+    <div class="centering" id="qrcode">
+    </div>
+    </div></div></div></div>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="http://joecrawford.com/jquery-1.3.2.min.js"><\/script>')</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+    var generateQR = (function() {
+        var qrInput = document.getElementById('qrtext');
+        var qrDiv = document.getElementById('qrcode');
+        var qrCode = new QRCode(qrDiv, qrInput.value);
+
+        function generateQR() {
+            qrCode.clear();
+            qrCode.makeCode(qrInput.value)
+        }
+        return generateQR;
+    }())
+    </script>
+</body>
+
+</html>
